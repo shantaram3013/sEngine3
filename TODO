@@ -1,0 +1,8 @@
+TODO: port dialogue system from TADS
+TODO: Sprite support
+TODO: Music system (shouldn't be too hard, really)
+TODO: Content
+TODO: Tilemap system
+DONE: rework movement
+DONE: Add positional trigger code, for NPCs etc
+TODO: fix camera initialiser
