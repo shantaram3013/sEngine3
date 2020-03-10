@@ -1,4 +1,4 @@
-// var win = nw.Window.get();
+
 function inputHandler() {
 
     if (keyIsDown(87)) {
@@ -42,7 +42,8 @@ function draw() {
     mainCamera.wWidth = width;
     mainCamera.wHeight = height;
 
-/*     console.log(animCounter);
+    /*
+    console.log(animCounter);
 
     switch (animCounter) {
         case 0:
@@ -72,7 +73,8 @@ function draw() {
     }
 
     animCounter += 1;
-    if (animCounter == 80) animCounter = 0; */
+    if (animCounter == 80) animCounter = 0;
+    */
 
     mainCamera.focus();
     mainCamera.update();

@@ -7,3 +7,4 @@ DONE: rework movement
 DONE: Add positional trigger code, for NPCs etc
 TODO: fix camera initialiser
 TODO: fix the radius mistake
+TODO: battle system, HP, attacks, etc

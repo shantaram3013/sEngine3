@@ -51,6 +51,8 @@ class Entity {
         }
 
         this.pos.round();
+        this.pos.x = clamp(this.pos.x, 0, World.map.width * World.tileSize);
+        this.pos.y = clamp(this.pos.y, 0, World.map.height * World.tileSize);
     }
 
     move(dir) {
@@ -78,7 +80,7 @@ class Entity {
     }
 
     resolveCollisions() {
-        for (var x of entities) {
+        for (let x of entities) {
 
             if (this === x) {
                 continue;
