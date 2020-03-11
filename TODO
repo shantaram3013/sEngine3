@@ -4,6 +4,7 @@ TODO: Music system (shouldn't be too hard, really)
 TODO: Content
 TODO: Tilemap system
 DONE: rework movement
+DONE: remove p5
 DONE: Add positional trigger code, for NPCs etc
 TODO: fix camera initialiser
 TODO: fix the radius mistake

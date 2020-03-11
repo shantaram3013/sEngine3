@@ -1,6 +1,5 @@
 "use strict";
 function randomInt(min, max) {
-
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -55,4 +54,20 @@ Array.prototype.remove = function (v) {
         return true;
     }
     return false;
+}
+
+CanvasRenderingContext2D.prototype.fillCircle = function (center, radius, color) {
+    this.beginPath();
+    this.arc(center.x, center.y, radius, 0, 2*Math.PI);
+    this.fillStyle = color || '#FFFFFF';
+    this.fill();
+    
+}
+
+CanvasRenderingContext2D.prototype.strokeCircle = function (center, radius, color, weight) {
+    this.beginPath();
+    this.arc(center.x, center.y, radius, 0, 2*Math.PI);
+    this.strokeStyle = color || '#FFFFFF';
+    this.lineWidth = weight;
+    this.stroke();
 }

@@ -11,14 +11,17 @@ class Entity {
 
     draw() {
         if (this.type === Types.NPC) {
-            fill(0, 255, 0);
+            renderer.fillCircle(this.pos, this.radius, 'green');
         }
-        if (this.type === Types.TRIGGER) {
-            noFill();
-            stroke(255);
+        else if (this.type === Types.TRIGGER) {
+            renderer.strokeCircle(this.pos, this.radius, 'green', 2);
         }
-
-        ellipse(this.pos.x, this.pos.y, this.radius, this.radius);
+        else if (this.type === Types.ENEMY) {
+            renderer.fillCircle(this.pos, this.radius, 'red');
+        }
+        else if (this.type === Types.PLAYER) {
+            renderer.fillCircle(this.pos, this.radius, 'blue');
+        }
     }
 
     update() {
@@ -58,25 +61,25 @@ class Entity {
     move(dir) {
         if (dir === Directions.UP) {
             if (this.vel.y > World.maxVel.x + 0.5)
-                this.vel.y -= 0.5;
+                this.vel.y -= 1;
         }
 
         if (dir === Directions.DOWN) {
             if (this.vel.y < World.maxVel.y - 0.5)
-                this.vel.y += 0.5;
+                this.vel.y += 1;
         }
         if (dir === Directions.RIGHT) {
             if (this.vel.x < World.maxVel.y - 0.5)
-                this.vel.x += 0.5;
+                this.vel.x += 1;
         }
         if (dir === Directions.LEFT) {
             if (this.vel.x > World.maxVel.x + 0.5)
-                this.vel.x -= 0.5;
+                this.vel.x -= 1;
         }
     }
 
     isColliding(x) {
-        return distance(this, x) <= this.radius / 2 + x.radius / 2;
+        return distance(this, x) <= this.radius + x.radius;
     }
 
     resolveCollisions() {
@@ -89,8 +92,7 @@ class Entity {
             if (this.isColliding(x)) {
                 if (this.type == Types.PLAYER && (x.type == Types.NPC || x.type == Types.SIGN)) {
                     let midpoint = this.pos.sub(x.pos);
-                    // dividing midpoint by 4 because i'm an idiot and thought the radius was actually the diameter
-                    this.pos = this.pos.add(midpoint.sDiv(4));
+                    this.pos = this.pos.add(midpoint.sDiv(2));
                     // don't know why this is 1.4, but it just looks right. It's the alpha value for the lerp function
                     this.vel = this.vel.lerp(nullV, 1.4);
                 }
