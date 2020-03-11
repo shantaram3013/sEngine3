@@ -2,8 +2,8 @@
 let animCounter = 0;
 
 function draw() {
-    
     renderer.clearRect(0, 0, canvas.width, canvas.height);
+    renderer.fillStyle = '#202020';
 
     for (x of entities) {
         x.update();
@@ -48,6 +48,7 @@ function draw() {
     mainCamera.focus();
     mainCamera.update();
 
+    renderer.fillRect(0, 0, World.map.width*World.tileSize, World.map.height*World.tileSize);
     for (let x of entities) {
         x.draw();
     }
