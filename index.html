@@ -1,12 +1,16 @@
 <html>
 <style>
+    @import url('https://fonts.googleapis.com/css?family=PT+Serif&display=swap');
+
     html,
     body {
         width: 100%;
         height: 100%;
         margin: 0;
-        background-color: #333333;
-        color: #93a1a1;
+        background-color: #261300;
+        color: #f5f4f0;
+        scrollbar-width: none;
+        font-family: 'PT Serif', serif;
     }
 
     #game-canvas {
@@ -16,7 +20,7 @@
         /* width: 95%;
         height: 80%; */
         transform: translate(-50%, -50%);
-        border: 2px dashed red;
+        border: 2px solid #130900;
     }
 
     .center {
@@ -34,8 +38,7 @@
         position: absolute;
         top: 90%;
         left: 50%;
-        height: 10%;
-        border: 2px dashed green;
+        height: 14%;
         transform: translate(-37%, -50%);
         width: 75.3%;
     }
@@ -44,10 +47,46 @@
         text-align: center;
         position: absolute;
         top: 90%;
-        height: 9.8%;
-        border: 2px dashed blue;
+        height: 14%;
         transform: translate(12%, -50%);
         width: 19%;
+        
+        
+    }
+
+    #npc-name {
+        position: absolute;
+        top: 2%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background: #5b3413;
+        width: 30%;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 4px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 12px;
+        height: 25%;
+    }
+    
+    #dialogue {
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background: #5b3413;
+        width: 85%;
+        height: 55%;
+        word-wrap: normal;
+        font-size: 15px;
+        text-align: left;
+        border-radius: 6px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 14px;
+        padding-right: 14px;
     }
 </style>
 
@@ -94,11 +133,17 @@
 
     <div class="ui-wrapper">
     <div id="text-box">
-            erererserer
+            <div id='npc-name'>
+npc-name
+            </div>
+
+            <div id='dialogue'>
+npc-dialogue
+            </div>
     </div>
 
     <div id="status">
-        ssss
+        status box
     </div>
     </div>
 </body>

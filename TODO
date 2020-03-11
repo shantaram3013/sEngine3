@@ -6,6 +6,7 @@ TODO: better way of creating entities
 TODO: battle system, HP, attacks, abilities, etc
 TODO: create a global gameobject
 TODO: Saving, loading
+TODO: data loading system (using XHR?)
 TODO: build a content editor
 TODO: populate world with content
 TODO: packaging

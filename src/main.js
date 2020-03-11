@@ -1,9 +1,11 @@
 
 let animCounter = 0;
 
+mapBGColor = '#472000';
+
 function draw() {
     renderer.clearRect(0, 0, canvas.width, canvas.height);
-    renderer.fillStyle = '#202020';
+    renderer.fillStyle = mapBGColor;
 
     for (x of entities) {
         x.update();

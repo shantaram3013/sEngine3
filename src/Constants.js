@@ -52,7 +52,8 @@ let foo2 = new Entity(new Vector2(innerWidth / 4, innerHeight / 3),
     {
         action: {
             resolve: () => {
-                console.log('hiii! testing action resolution...');
+                document.getElementById('npc-name').innerHTML = 'The first NPC ever';
+                document.getElementById('dialogue').innerHTML = 'hi! you talked to me!';
                 player.currentTriggerAction = undefined;
             },
         }
