@@ -53,6 +53,7 @@ let foo2 = new Entity(new Vector2(innerWidth / 4, innerHeight / 3),
         action: {
             resolve: () => {
                 console.log('hiii! testing action resolution...');
+                player.currentTriggerAction = undefined;
             },
         }
     });

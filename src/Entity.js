@@ -103,9 +103,11 @@ class Entity {
                     this.vel = this.vel.lerp(nullV, 1.4);
                 }
 
+                else;
+
                 if (this.type == Types.PLAYER && (x.type == Types.TRIGGER)) {
                     this.triggerActive = true;
-                    player.currentTrigger = this;
+                    this.currentTrigger = x;
                     this.currentTriggerAction = x.miscArgs.parent.miscArgs.action.resolve;
                 }
             }

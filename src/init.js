@@ -3,25 +3,21 @@ let canvasRect;
 let mainCamera;
 
 function init() {
+    window.pressedKeys = [];
     window.addEventListener('keypress', (e) => {
-        if (e.key === 'w') {
-            player.move(Directions.UP);
-        }
-        if (e.key === 'a') {
-            player.move(Directions.LEFT);
-        }
-        if (e.key === 's') {
-            player.move(Directions.DOWN);
-        }
-        if (e.key === 'd') {
-            player.move(Directions.RIGHT);
-        }
+        window.pressedKeys[e.key] = true;
     });
 
     window.addEventListener('keyup', (e) => {
+        window.pressedKeys[e.key] = false;
+
         if (e.key === 'e') {
-            if (player.triggerActive) {
+            if (player.triggerActive && player.isColliding(player.currentTrigger)) {
                 player.currentTriggerAction();
+            }
+            else {
+                player.triggerActive = false;
+                player.currentTriggerAction = undefined;
             }
         }
     });

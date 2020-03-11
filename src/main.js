@@ -9,6 +9,8 @@ function draw() {
         x.update();
     }
 
+    window.inputHandler();
+
     /*
     console.log(animCounter);
 
@@ -52,6 +54,26 @@ function draw() {
 
     renderer.setTransform(1, 0, 0, 1, 0, 0);
     window.requestAnimationFrame(draw);
+}
+
+window.inputHandler = function () {
+
+    if (window.isKeyDown('w')) {
+        player.move(Directions.UP);
+    }
+    if (window.isKeyDown('a')) {
+        player.move(Directions.LEFT);
+    }
+    if (window.isKeyDown('s')) {
+        player.move(Directions.DOWN);
+    }
+    if (window.isKeyDown('d')) {
+        player.move(Directions.RIGHT);
+    } 
+}
+
+window.isKeyDown = function(k) {
+    return window.pressedKeys[k];
 }
 
 
