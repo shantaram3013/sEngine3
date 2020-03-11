@@ -92,7 +92,8 @@ class Entity {
             if (this.isColliding(x)) {
                 if (this.type == Types.PLAYER && (x.type == Types.NPC || x.type == Types.SIGN)) {
                     let midpoint = this.pos.sub(x.pos);
-                    this.pos = this.pos.add(midpoint.sDiv(2));
+                    this.pos = this.pos.add(midpoint.sDiv(16)); // nfi why this works but it does
+                    
                     // don't know why this is 1.4, but it just looks right. It's the alpha value for the lerp function
                     this.vel = this.vel.lerp(nullV, 1.4);
                 }
