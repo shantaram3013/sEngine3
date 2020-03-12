@@ -17,6 +17,8 @@ let World = {
     },
     friction: 0.2,
     maxVel: new Vector2(-5, 5),
+    // don't know why this is 1.4, but it just looks right (might be because 1.4 ~ 1.414 ~ sqrt(2)?). It's the alpha value for the lerp function
+    velocityLerpValue: 1.4,
 }
 
 const Types = {
@@ -27,7 +29,6 @@ const Types = {
     SIGN: 4,
     TILE: 5,
     MELEE: 6,
-    SIGHT_CIRCLE: 7,
 }
 
 const States = {
@@ -36,7 +37,7 @@ const States = {
     ATTACK: 2
 }
 
-let player = new Entity(new Vector2(innerWidth / 2, innerHeight / 2),
+let player = new Entity(new Vector2(innerWidth / 2, innerHeight / 3),
     World.tileSize/2,
     Types.PLAYER,
     {});
