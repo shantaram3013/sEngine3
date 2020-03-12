@@ -51,15 +51,17 @@ function init() {
     addEventListener('mousedown', handleMouseDown);
     addEventListener('mouseup', handleMouseUp);
     addEventListener('contextmenu', function (e) {
-        e.preventDefault();
     });
 
     canvas = document.getElementById("game-canvas");
     renderer = canvas.getContext('2d');
     canvasRect = canvas.getBoundingClientRect();
 
-    canvas.width = snapToGrid(window.innerWidth - Math.round(0.05*window.innerWidth));
-    canvas.height = snapToGrid(window.innerHeight - Math.round(0.20*window.innerHeight));
+    /* canvas.width = snapToGrid(window.innerWidth - Math.round(0.05*window.innerWidth));
+    canvas.height = snapToGrid(window.innerHeight - Math.round(0.20*window.innerHeight)); */
+
+    canvas.width = document.body.clientWidth;
+    canvas.height = window.innerHeight;
 
     mainCamera = new Camera(player);
 
