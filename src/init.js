@@ -61,7 +61,7 @@ function init() {
     canvas.height = snapToGrid(window.innerHeight - Math.round(0.20*window.innerHeight)); */
 
     canvas.width = document.body.clientWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = document.body.clientHeight;
 
     mainCamera = new Camera(player);
 
