@@ -1,27 +1,26 @@
+TODO: create a global gameobject
 TODO: Tilemap system from sEngine2
 TODO: port dialogue system from TADS
 TODO: Music system (shouldn't be too hard, really)
 TODO: Sprite support
 TODO: better way of creating entities
-TODO: improve entity spawning
 TODO: battle system
-TODO: health system
 TODO: attacks
-TODO: figure out why removing code duplication in utils.js two distance functions breaks the game
 TODO: look for and fix code duplication
+TODO: figure out why removing code duplication in utils.js two distance functions breaks the game
 TODO: Enemy AI
-TODO: status UI
-TODO: create a global gameobject
 TODO: Saving, loading
 TODO: entity/type-specific speed limits
-TODO: add a vector method to check if the length of a given vector is less than a scalar
-TODO: implement cross-type collision between non-player types
 TODO: build a proper Type class that includes draw data etc
-TODO: UI streamlining
 TODO: data loading system (using XHR?)
-TODO: build a content editor
 TODO: populate world with content
-TODO: packaging
+TODO: packaging (minification, electron, etc)
+
+PARTIAL: build a content editor (svf compiler is done)
+PARTIAL: status UI
+PARTIAL: health system
+PARTIAL: UI streamlining (marked partial since UI itself is in early dev)
+PARTIAL: implement cross-type collision between non-player types
 
 DONE: Add positional trigger code, for NPCs etc
 DONE: fix camera initialiser
@@ -30,3 +29,4 @@ DONE: add diagonal movement and pressedKeys
 DONE: add different rendering for different entities and different views for out-of-bounds / map space
 DONE: rework movement
 DONE: remove p5
+DONE: add a vector method to check if the length of a given vector is less than a scalar
