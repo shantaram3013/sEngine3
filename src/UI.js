@@ -23,6 +23,39 @@ Game.UI.closeDialogue = function() {
     setTimeout(Game.UI.hideTextBox, Game.UI.dialogueFadeTime);
 }
 
-Game.UI.setHealthBarPercentage = function() {
+Game.UI.setHealthBarPercentage = function(s) {
+    healthVal = clamp(s, 0, 100);
+    let bar = document.getElementById("health-value");
+    bar.style.width = healthVal + '%';
+
+    bar.style.background = '#e52222'; // red
+    if (healthVal >= 25) {
+        bar.style.background = '#fd971f'; // orange
+        if (healthVal >= 50) {
+            bar.style.background = '#a6e22e'; // yellow
+            if (healthVal >= 75) {
+                bar.style.background = '#8DBD0C'; // green
+            }
+        }
+    }
+
+    if (healthVal >= 75) {
+        bar.style.background = '#8DBD0C'; // green
+    }
+
+    else if (healthVal >= 50) {
+        bar.style.background = '#a6e22e'; // yellow
+    }
+
+    else if (healthVal >= 25) {
+        bar.style.background = '#fd971f'; // orange
+    }
+
+    else {
+        bar.style.background = '#e52222'; // red
+    }
+
+    let text = document.getElementById('health-value-text');
+    text.innerHTML = 'fuel cell at ' + healthVal + '%';
 
 }
