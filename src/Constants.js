@@ -53,8 +53,10 @@ let foo2 = new Entity(new Vector2(innerWidth / 4, innerHeight / 3),
     {
         action: {
             resolve: () => {
-                document.getElementById('npc-name').innerHTML = 'The first NPC ever';
-                document.getElementById('dialogue').innerHTML = 'hi! you talked to me!';
+                Game.UI.openDialogue();
+                Game.UI.setNPCName('The first NPC ever');
+                Game.UI.setDialogueText('You talked to me!');
+                Game.UI.closeDialogue();
                 player.currentTriggerAction = undefined;
             },
         }

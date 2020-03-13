@@ -71,7 +71,6 @@ Game.init = () => {
     Game.canvas.addEventListener("mousemove", (e) => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
-        console.log(mouse)
     });
 
     window.requestAnimationFrame(draw);

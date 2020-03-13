@@ -9,7 +9,10 @@
         scrollbar-width: none;
         font-family: 'PT Serif', serif;
     }
-#game-canvas { box-sizing: border-box; }
+
+    #game-canvas {
+        box-sizing: border-box;
+    }
 
     #game-canvas {
         position: absolute;
@@ -91,7 +94,7 @@
         background-clip: content-box;
         background: #404040;
         opacity: 0.75;
-        border: 1px solid rgba(24,24,24,0.75);
+        border: 1px solid rgba(24, 24, 24, 0.75);
         width: 15%;
         font-size: 14px;
         font-weight: bold;
@@ -122,8 +125,44 @@
         z-index: 0;
         background: #222222;
         opacity: 0.75;
-        border: 1px solid rgba(24, 24, 24,0.75);
+        border: 1px solid rgba(24, 24, 24, 0.75);
 
+    }
+
+    .fade-in {
+        opacity: 0.75;
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 2s;
+    }
+
+    @keyframes fadeInOpacity {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0.75;
+        }
+    }
+
+    .fade-out {
+        opacity: 0;
+        animation-name: fadeOut;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 2s;
+    }
+
+    @keyframes fadeInOpacity {
+        0% {
+            opacity: 0.75;
+        }
+
+        100% {
+            opacity: 0;
+        }
     }
 </style>
 
@@ -148,6 +187,9 @@
     </script>
 
     <script src='src/Vector2.js'>
+    </script>
+
+    <script src='UI.js'>
     </script>
 
     <script src='src/utils.js'>
