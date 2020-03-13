@@ -1,5 +1,5 @@
 class Choice {
-    constructor(text, score, next, callback) {
+    constructor(text, next, callback) {
         this.next = next;
         this.text = text;
         this.score = score;
@@ -7,13 +7,7 @@ class Choice {
     }
 
     resolve() {
-        game.setCurrentPrompt(this.next);
-	    if (game.player.score[game.currentLevel]) {
-	        game.player.score[game.currentLevel] += this.score;
-	    }
-	    else {
-	        game.player.score[game.currentLevel] = this.score;
-	    }
+        Game.setCurrentPrompt(this.next);
         if (this.callback) {
             this.callback();
         }
