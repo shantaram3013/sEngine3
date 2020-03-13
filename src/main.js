@@ -1,13 +1,13 @@
+Game.frameCounter = 0;
 
-let animCounter = 0;
-
-mapBGColor = '#472000';
+Game.mapBGColor = '#472000';
 
 function draw() {
-    renderer.clearRect(0, 0, canvas.width, canvas.height);
-    renderer.fillStyle = mapBGColor;
 
-    for (x of entities) {
+    Game.renderer.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
+    Game.renderer.fillStyle = Game.mapBGColor;
+
+    for (x of Game.entities) {
         x.update();
     }
 
@@ -19,26 +19,26 @@ function draw() {
     switch (animCounter) {
         case 0:
             for (let i = 0; i <= 10; i++) {
-                foo.move(Directions.UP);
-                foo2.move(Directions.UP);
+                foo.move(Game.Directions.UP);
+                foo2.move(Game.Directions.UP);
             }
             break;
         case 20:
             for (let i = 0; i <= 10; i++) {
-                foo.move(Directions.RIGHT);
-                foo2.move(Directions.RIGHT);
+                foo.move(Game.Directions.RIGHT);
+                foo2.move(Game.Directions.RIGHT);
             }
             break;
         case 40:
             for (let i = 0; i <= 10; i++) {
-                foo.move(Directions.DOWN);
-                foo2.move(Directions.DOWN);
+                foo.move(Game.Directions.DOWN);
+                foo2.move(Game.Directions.DOWN);
             }
             break;
         case 60:
             for (let i = 0; i <= 10; i++) {
-                foo.move(Directions.LEFT);
-                foo2.move(Directions.LEFT);
+                foo.move(Game.Directions.LEFT);
+                foo2.move(Game.Directions.LEFT);
             }
             break;
     }
@@ -47,35 +47,36 @@ function draw() {
     if (animCounter == 80) animCounter = 0;
     */
 
-    mainCamera.focus();
-    mainCamera.update();
+    Game.mainCamera.focus();
+    Game.mainCamera.update();
 
-    renderer.fillRect(0, 0, World.map.width*World.tileSize, World.map.height*World.tileSize);
-    for (let x of entities) {
+    Game.renderer.fillRect(0, 0, Game.World.map.width * Game.World.tileSize, Game.World.map.height * Game.World.tileSize);
+    for (let x of Game.entities) {
         x.draw();
     }
 
-    renderer.setTransform(1, 0, 0, 1, 0, 0);
+    Game.renderer.setTransform(1, 0, 0, 1, 0, 0);
+    Game.frameCounter++;
     window.requestAnimationFrame(draw);
 }
 
 window.inputHandler = function () {
 
     if (window.isKeyDown('w')) {
-        player.move(Directions.UP);
+        player.move(Game.Directions.UP);
     }
     if (window.isKeyDown('a')) {
-        player.move(Directions.LEFT);
+        player.move(Game.Directions.LEFT);
     }
     if (window.isKeyDown('s')) {
-        player.move(Directions.DOWN);
+        player.move(Game.Directions.DOWN);
     }
     if (window.isKeyDown('d')) {
-        player.move(Directions.RIGHT);
-    } 
+        player.move(Game.Directions.RIGHT);
+    }
 }
 
-window.isKeyDown = function(k) {
+window.isKeyDown = function (k) {
     return window.pressedKeys[k];
 }
 
@@ -94,19 +95,19 @@ Patrolling code
     switch (animCounter) {
         case 0:
             for (let i = 0; i <= 10; i++)
-                player.move(Directions.UP);
+                player.move(Game.Directions.UP);
             break;
         case 20:
             for (let i = 0; i <= 10; i++)
-                player.move(Directions.RIGHT);
+                player.move(Game.Directions.RIGHT);
             break;
         case 40:
             for (let i = 0; i <= 10; i++)
-                player.move(Directions.DOWN);
+                player.move(Game.Directions.DOWN);
             break;
         case 60:
             for (let i = 0; i <= 10; i++)
-                player.move(Directions.LEFT);
+                player.move(Game.Directions.LEFT);
             break;
     }
 

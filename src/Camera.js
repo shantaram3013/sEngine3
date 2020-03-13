@@ -2,8 +2,8 @@ class Camera {
     constructor(focusPoint) {
         this.focusPoint = focusPoint || player;
         this.pos = new Vector2(0, 0);
-        this.wWidth = canvas.width/2;
-        this.wHeight = canvas.height/2;
+        this.wWidth = Game.canvas.width/2;
+        this.wHeight = Game.canvas.height/2;
     }
 
     focus() {
@@ -12,7 +12,7 @@ class Camera {
     }
 
     update() {
-        renderer.translate(this.pos.x, this.pos.y);
+        Game.renderer.translate(this.pos.x, this.pos.y);
     }
 
     updateFocusPoint(newFocusPoint) {

@@ -1,8 +1,9 @@
-let canvas, renderer;
+/* let canvas, renderer;
 let canvasRect;
-let mainCamera;
+let mainCamera; */
+let Game = {};
 
-function init() {
+Game.init = () => {
     window.pressedKeys = [];
     window.addEventListener('keypress', (e) => {
         window.pressedKeys[e.key] = true;
@@ -53,26 +54,26 @@ function init() {
     addEventListener('contextmenu', function (e) {
     });
 
-    canvas = document.getElementById("game-canvas");
-    renderer = canvas.getContext('2d');
-    canvasRect = canvas.getBoundingClientRect();
+    Game.canvas = document.getElementById("game-canvas");
+    Game.renderer = Game.canvas.getContext('2d');
 
     /* canvas.width = snapToGrid(window.innerWidth - Math.round(0.05*window.innerWidth));
     canvas.height = snapToGrid(window.innerHeight - Math.round(0.20*window.innerHeight)); */
 
-    canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight;
+    Game.canvas.width = document.body.clientWidth;
+    Game.canvas.height = document.body.clientHeight;
 
-    mainCamera = new Camera(player);
+    Game.mainCamera = new Camera(player);
 
     /* canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight; */
 
-    canvas.addEventListener("mousemove", (e) => {
-        mouse.x = e.clientX - canvasRect.left;
-        mouse.y = e.clientY - canvasRect.top;
+    Game.canvas.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        console.log(mouse)
     });
 
     window.requestAnimationFrame(draw);
 }
-window.onload = init;
+window.onload = Game.init;

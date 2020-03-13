@@ -20,7 +20,7 @@ function distance(e1, e2) {
 }
 
 function snapToGrid(_a) {
-    return _a - (_a % World.tileSize);
+    return _a - (_a % Game.World.tileSize);
 }
 
 function deltaX(e1, e2) {
@@ -38,14 +38,14 @@ function clamp(value, min, max) {
 }
 
 function line(v1, v2, color, width) {
-    renderer.beginPath();
+    Game.renderer.beginPath();
     if (color)
-        renderer.strokeStyle = color;
+        Game.renderer.strokeStyle = color;
     if (width)
-        renderer.lineWidth = width;
-    renderer.moveTo(v1.x, v1.y);
-    renderer.lineTo(v2.x, v2.y);
-    renderer.stroke();
+        Game.renderer.lineWidth = width;
+    Game.renderer.moveTo(v1.x, v1.y);
+    Game.renderer.lineTo(v2.x, v2.y);
+    Game.renderer.stroke();
 }
 
 Array.prototype.remove = function (v) {

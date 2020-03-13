@@ -1,14 +1,14 @@
 const nullV = new Vector2(0, 0);
 const unitV = new Vector2(1, 1);
 
-const Directions = {
+Game.Directions = {
     UP: "up",
     DOWN: "down",
     LEFT: "left",
     RIGHT: "right"
 }
 
-let World = {
+Game.World = {
     bgColor: 'black',
     tileSize: 30,
     map: {
@@ -21,7 +21,7 @@ let World = {
     velocityLerpValue: 1.4,
 }
 
-const Types = {
+Game.ETypes = {
     PLAYER: 0,
     ENEMY: 1,
     TRIGGER: 2,
@@ -31,25 +31,25 @@ const Types = {
     MELEE: 6,
 }
 
-const States = {
+Game.EStates = {
     IDLE: 0,
     WALK: 1,
     ATTACK: 2
 }
 
 let player = new Entity(new Vector2(innerWidth / 2, innerHeight / 3),
-    World.tileSize/2,
-    Types.PLAYER,
+    Game.World.tileSize/2,
+    Game.ETypes.PLAYER,
     {});
 
 let foo = new Entity(new Vector2(innerWidth / 3, innerHeight / 3),
-    World.tileSize/2,
-    Types.ENEMY,
+    Game.World.tileSize/2,
+    Game.ETypes.ENEMY,
     {});
 
 let foo2 = new Entity(new Vector2(innerWidth / 4, innerHeight / 3),
-    World.tileSize/2,
-    Types.NPC,
+    Game.World.tileSize/2,
+    Game.ETypes.NPC,
     {
         action: {
             resolve: () => {
@@ -61,20 +61,20 @@ let foo2 = new Entity(new Vector2(innerWidth / 4, innerHeight / 3),
     });
 
 let foo2_trigger = new Entity(new Vector2(foo2.pos.x, foo2.pos.y),
-    World.tileSize * 2,
-    Types.TRIGGER,
+    Game.World.tileSize * 2,
+    Game.ETypes.TRIGGER,
     {
         parent: foo2,
     });
 
 
 
-let entities = []
+Game.entities = []
 
-entities.push(player);
-entities.push(foo);
-entities.push(foo2);
-entities.push(foo2_trigger);
+Game.entities.push(player);
+Game.entities.push(foo);
+Game.entities.push(foo2);
+Game.entities.push(foo2_trigger);
 
 let mouse = {
     x: 0,
