@@ -13,40 +13,6 @@ function draw() {
 
     window.inputHandler();
 
-    /*
-    console.log(animCounter);
-
-    switch (animCounter) {
-        case 0:
-            for (let i = 0; i <= 10; i++) {
-                foo.move(Game.Directions.UP);
-                foo2.move(Game.Directions.UP);
-            }
-            break;
-        case 20:
-            for (let i = 0; i <= 10; i++) {
-                foo.move(Game.Directions.RIGHT);
-                foo2.move(Game.Directions.RIGHT);
-            }
-            break;
-        case 40:
-            for (let i = 0; i <= 10; i++) {
-                foo.move(Game.Directions.DOWN);
-                foo2.move(Game.Directions.DOWN);
-            }
-            break;
-        case 60:
-            for (let i = 0; i <= 10; i++) {
-                foo.move(Game.Directions.LEFT);
-                foo2.move(Game.Directions.LEFT);
-            }
-            break;
-    }
-
-    animCounter += 1;
-    if (animCounter == 80) animCounter = 0;
-    */
-
     Game.mainCamera.focus();
     Game.mainCamera.update();
 
