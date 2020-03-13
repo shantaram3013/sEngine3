@@ -22,3 +22,9 @@ Game.UI.dialogueFadeTime = 3000; // milliseconds
 Game.UI.closeDialogue = function() {
     setTimeout(Game.UI.hideTextBox, Game.UI.dialogueFadeTime);
 }
+
+Game.UI.setHealthBarPercentage = function() {
+    
+}
+
+Game.UI.closeDialogue();
