@@ -16,7 +16,7 @@ TODO: data loading system (using XHR?)
 TODO: populate world with content
 TODO: packaging (minification, electron, etc)
 
-PARTIAL: build a content editor (svf compiler is done)
+PARTIAL: build a content editor (svf compiler is done, TileMap editor is done too)
 PARTIAL: status UI
 PARTIAL: health system
 PARTIAL: UI streamlining (marked partial since UI itself is in early dev)
