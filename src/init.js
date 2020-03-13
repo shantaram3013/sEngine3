@@ -2,6 +2,11 @@
 let canvasRect;
 let mainCamera; */
 let Game = {};
+const MOUSE_VALUES = {
+    LEFT: 0,
+    MIDDLE: 1,
+    RIGHT: 2
+}
 
 Game.init = () => {
     window.pressedKeys = [];
@@ -23,28 +28,26 @@ Game.init = () => {
         }
     });
 
-    var rightMouseClicked = false;
+    let rightMouseClicked = false;
 
     function handleMouseDown(e) {
-        //e.button describes the Mouse button that was clicked
-        // 0 is left, 1 is middle, 2 is right
-        if (e.button === 2) {
+        if (e.button === MOUSE_VALUES.RIGHT) {
             rightMouseClicked = true;
         }
 
-        else if (e.button === 0) {
-            //Do something if left button was clicked and right button is still pressed
+        else if (e.button === MOUSE_VALUES.LEFT) {
             if (rightMouseClicked) {
-                console.log('hello');
+                // handle left + right clicked at the same time
             }
 
             else {
+                // handle left click
             }
         }
     }
 
     function handleMouseUp(e) {
-        if (e.button === 2) {
+        if (e.button === MOUSE_VALUES.RIGHT) {
             rightMouseClicked = false;
         }
     }
@@ -52,6 +55,7 @@ Game.init = () => {
     addEventListener('mousedown', handleMouseDown);
     addEventListener('mouseup', handleMouseUp);
     addEventListener('contextmenu', function (e) {
+        e.preventDefault();
     });
 
     Game.canvas = document.getElementById("game-canvas");

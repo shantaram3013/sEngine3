@@ -1,11 +1,10 @@
 TODO: Tilemap system from sEngine2
 TODO: Sprite support
-TODO: better way of creating entities
+TODO: Enemy AI
 TODO: battle system
 TODO: attacks
 TODO: look for and fix code duplication
 TODO: figure out why removing code duplication in utils.js two distance functions breaks the game
-TODO: Enemy AI
 TODO: Saving, loading
 TODO: entity/type-specific speed limits
 TODO: build a proper Type class that includes draw data etc

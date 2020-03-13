@@ -98,7 +98,7 @@ class Entity {
 
                 else if (this.type === Game.ETypes.PLAYER && x.type === Game.ETypes.ENEMY || this.type === Game.ETypes.ENEMY && x.type === Game.ETypes.PLAYER) {
                     let midpoint = this.pos.sub(x.pos);
-                    this.pos = this.pos.add(midpoint.sDiv(4));
+                    this.pos = this.pos.add(midpoint.sDiv(2));
                     this.vel = this.vel.lerp(nullV, Game.World.velocityLerpValue);
                 }
 
