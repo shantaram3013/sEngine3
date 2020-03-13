@@ -76,7 +76,7 @@ Game.init = () => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
     });
-
+    Game.UI.hideTextBox();
     window.requestAnimationFrame(draw);
 }
 window.onload = Game.init;

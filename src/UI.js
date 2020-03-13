@@ -26,5 +26,3 @@ Game.UI.closeDialogue = function() {
 Game.UI.setHealthBarPercentage = function() {
 
 }
-
-Game.UI.hideTextBox();

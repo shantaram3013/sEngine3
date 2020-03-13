@@ -1,7 +1,6 @@
 Game.frameCounter = 0;
 
 Game.mapBGColor = '#472000';
-
 function draw() {
 
     Game.renderer.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
