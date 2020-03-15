@@ -15,7 +15,7 @@ class Choice {
     }
 
     toHTMLChoice() {
-        let btnWrapper = document.createElement("div");
+        /* let btnWrapper = document.createElement("div");
         btnWrapper.class = "buttonWrapper";
 
         let btn = document.createElement("button");
@@ -30,6 +30,8 @@ class Choice {
         })
 
         btnWrapper.appendChild(btn);
-        document.getElementById("choiceWrapper").appendChild(btnWrapper);
+        document.getElementById("choiceWrapper").appendChild(btnWrapper); */
+
+        // TODO: Finalise button placement
     }
 }

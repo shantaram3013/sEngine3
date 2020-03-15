@@ -6,15 +6,7 @@ class Prompt {
     }
 
     draw() {
-        disableAllButtons();
-        game.writer.replaceAndType(this.text);
-        if (this.heading) {
-            document.getElementById("heading").innerHTML = this.heading;
-            document.getElementById("heading").style.paddingTop = "50px";
-        }
-        else {
-            document.getElementById("heading").innerHTML = "";
-            document.getElementById("heading").style.paddingTop = "82px";
-        }
+        // disableAllButtons();
+        // TODO: implement drawing routine
     }
 }

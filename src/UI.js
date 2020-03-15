@@ -24,11 +24,11 @@ Game.UI.closeDialogue = function() {
 }
 
 Game.UI.setHealthBarPercentage = function(s) {
-    healthVal = clamp(s, 0, 100);
+    let healthVal = clamp(s, 0, 100);
     let bar = document.getElementById("health-value");
+    
     bar.style.width = healthVal + '%';
-
-    bar.style.background = 'hsl(' + healthVal * 208 / 100 + ', 89%, 40%)';
+    bar.style.background = `hsl(${healthVal * 208 / 100}, 89%, 40%)`;
 
     let text = document.getElementById('health-value-text');
     text.innerHTML = 'fuel cell at ' + healthVal + '%';
