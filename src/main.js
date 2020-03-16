@@ -15,10 +15,13 @@ function draw() {
     Game.mainCamera.focus();
     Game.mainCamera.update();
 
+    Game.renderer.scale(Game.canvasScale.x, Game.canvasScale.y);
+
     Game.renderer.fillRect(0, 0, Game.World.map.width * Game.World.tileSize, Game.World.map.height * Game.World.tileSize);
     for (let x of Game.entities) {
         x.draw();
     }
+    
 
     Game.renderer.setTransform(1, 0, 0, 1, 0, 0);
     Game.frameCounter++;
@@ -44,38 +47,3 @@ window.inputHandler = function () {
 window.isKeyDown = function (k) {
     return window.pressedKeys[k];
 }
-
-
-/*
-Patrolling code
-
-    ////// outside //////
-
-    let animCounter = 0;
-
-    ////// in draw //////
-
-    console.log(animCounter);
-
-    switch (animCounter) {
-        case 0:
-            for (let i = 0; i <= 10; i++)
-                player.move(Game.Directions.UP);
-            break;
-        case 20:
-            for (let i = 0; i <= 10; i++)
-                player.move(Game.Directions.RIGHT);
-            break;
-        case 40:
-            for (let i = 0; i <= 10; i++)
-                player.move(Game.Directions.DOWN);
-            break;
-        case 60:
-            for (let i = 0; i <= 10; i++)
-                player.move(Game.Directions.LEFT);
-            break;
-    }
-
-    animCounter += 1;
-    if (animCounter == 80) animCounter = 0;
-*/

@@ -12,7 +12,7 @@ class Camera {
     }
 
     update() {
-        Game.renderer.translate(this.pos.x, this.pos.y);
+        Game.renderer.translate(Game.canvasScale.x * this.pos.x, Game.canvasScale.y * this.pos.y);
     }
 
     updateFocusPoint(newFocusPoint) {

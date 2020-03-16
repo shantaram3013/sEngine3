@@ -23,6 +23,14 @@ Game.UI.closeDialogue = function() {
     setTimeout(Game.UI.hideTextBox, Game.UI.dialogueFadeTime);
 }
 
+Game.UI.scaleCanvas = function() {
+    Game.canvasScale.x = Game.canvas.width / document.body.clientWidth;
+    Game.canvasScale.y = Game.canvas.height / document.body.clientHeight;
+
+    Game.mainCamera.wWidth = (document.body.clientWidth / 2);
+    Game.mainCamera.wHeight = (document.body.clientHeight / 2);
+}
+
 Game.UI.setHealthBarPercentage = function(s) {
     let healthVal = clamp(s, 0, 100);
     let bar = document.getElementById("health-value");
