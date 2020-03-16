@@ -1,18 +1,20 @@
-Game.UI = {}
-
 Game.UI.hideTextBox = function() {
-    document.getElementById("text-box").style.opacity = 0;
+    if (!Game.UI.textBox.hasMouseInside) {
+        Game.UI.textBox.style.opacity = 0;
+        return;
+    }
+    Game.UI.closeDialogue();
 }
 
 Game.UI.showTextBox = function() {
-    document.getElementById("text-box").style.opacity = 1;
+    Game.UI.textBox.style.opacity = 1;
 }
 Game.UI.setNPCName = function(s) {
-    document.getElementById("npc-name").innerHTML = s;
+    Game.UI.npcName.innerHTML = s;
 }
 
 Game.UI.setDialogueText = function(s) {
-    document.getElementById("dialogue").innerHTML = s;
+    Game.UI.dialogueBox.innerHTML = s;
 }
 
 Game.UI.openDialogue = Game.UI.showTextBox;
@@ -33,11 +35,9 @@ Game.UI.scaleCanvas = function() {
 
 Game.UI.setHealthBarPercentage = function(s) {
     let healthVal = clamp(s, 0, 100);
-    let bar = document.getElementById("health-value");
     
-    bar.style.width = healthVal + '%';
-    bar.style.background = `hsl(${healthVal * 208 / 100}, 89%, 40%)`;
+    healthBar.style.width = healthVal + '%';
+    healthBar.style.background = `hsl(${healthVal * 208 / 100}, 89%, 40%)`;
 
-    let text = document.getElementById('health-value-text');
-    text.innerHTML = 'fuel cell at ' + healthVal + '%';
+    healthText.innerHTML = 'fuel cell at ' + healthVal + '%';
 }
