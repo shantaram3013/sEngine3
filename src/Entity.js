@@ -53,9 +53,10 @@ class Entity {
             this.vel.y = 0;
         }
 
-        this.pos.round();
         this.pos.x = clamp(this.pos.x, 0, Game.World.map.width * Game.World.tileSize);
         this.pos.y = clamp(this.pos.y, 0, Game.World.map.height * Game.World.tileSize);
+
+        this.pos.round();
     }
 
     move(dir) {

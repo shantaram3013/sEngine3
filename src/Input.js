@@ -20,7 +20,7 @@ Game.Input.mouseDownHandler = function(e) {
     }
 
     else if (e.button === MOUSE_VALUES.LEFT) {
-        if (rightMouseClicked) {
+        if (Game.Input.rightMouseClicked) {
             // handle left + right clicked at the same time
         }
 

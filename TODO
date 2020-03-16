@@ -30,3 +30,4 @@ DONE: remove p5
 DONE: add a vector method to check if the length of a given vector is less than a scalar
 DONE: Music system (shouldn't be too hard, really)
 DONE: create a global gameobject
+DONE: Dynamic resize
