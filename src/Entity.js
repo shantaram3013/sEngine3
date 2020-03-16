@@ -10,17 +10,23 @@ class Entity {
     }
 
     draw() {
-        if (this.type === Game.ETypes.NPC) {
-            Game.renderer.fillCircle(this.pos, this.radius, 'green');
-        }
-        else if (this.type === Game.ETypes.TRIGGER) {
-            Game.renderer.strokeCircle(this.pos, this.radius, 'green', 2);
-        }
-        else if (this.type === Game.ETypes.ENEMY) {
-            Game.renderer.fillCircle(this.pos, this.radius, 'red');
-        }
-        else if (this.type === Game.ETypes.PLAYER) {
-            Game.renderer.fillCircle(this.pos, this.radius, 'yellow');
+        
+        switch (this.type) {
+            case Game.ETypes.NPC:
+                Game.renderer.fillCircle(this.pos, this.radius, 'green');
+                break;
+            case Game.ETypes.TRIGGER:
+                Game.renderer.strokeCircle(this.pos, this.radius, 'green', 2);
+                break;
+            case Game.ETypes.ENEMY:
+                Game.renderer.fillCircle(this.pos, this.radius, 'red');
+                break;
+            case Game.ETypes.PLAYER:
+                Game.renderer.fillCircle(this.pos, this.radius, 'yellow');
+                break;
+            default:
+                console.log("Unimplemented draw operation attempted.");
+                break;
         }
     }
 
@@ -104,7 +110,7 @@ class Entity {
                 }
 
                 else if (this.type === Game.ETypes.PLAYER && x.type === Game.ETypes.TRIGGER) {
-                    
+
                 }
 
                 else {

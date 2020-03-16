@@ -36,8 +36,8 @@ Game.UI.scaleCanvas = function() {
 Game.UI.setHealthBarPercentage = function(s) {
     let healthVal = clamp(s, 0, 100);
     
-    healthBar.style.width = healthVal + '%';
-    healthBar.style.background = `hsl(${healthVal * 208 / 100}, 89%, 40%)`;
+    Game.UI.healthBar.style.width = healthVal + '%';
+    Game.UI.healthBar.style.background = `hsl(${healthVal * 1.4}, 89%, 40%)`;
 
-    healthText.innerHTML = 'fuel cell at ' + healthVal + '%';
+    Game.UI.healthText.innerHTML = 'fuel cell at ' + healthVal + '%';
 }

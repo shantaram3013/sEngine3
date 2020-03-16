@@ -1,4 +1,5 @@
 TODO: Tilemap system from sEngine2
+TODO: Smooth health bar decrease / increase in setHealthBarPerc
 TODO: Sprite support
 TODO: Enemy AI
 TODO: CSS vars
@@ -8,6 +9,7 @@ TODO: look for and fix code duplication
 TODO: figure out why removing code duplication in utils.js two distance functions breaks the game
 TODO: Saving, loading
 TODO: entity/type-specific speed limits
+TODO: Start screen
 TODO: build a proper Type class that includes draw data etc
 TODO: data loading system (using XHR?)
 TODO: populate world with content

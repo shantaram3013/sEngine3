@@ -46,6 +46,8 @@ Game.init = () => {
 
     Game.UI.hideTextBox();
 
+    alert('Welcome to sEngine3\'s playable demo.\nINSTRUCTIONS: WASD to move the yellow dot, the player.\nHollow green circles are triggers and you can press E to interact with a trigger.\nRed dots are enemies.')
+
     window.requestAnimationFrame(draw);
 }
 window.onload = Game.init;
