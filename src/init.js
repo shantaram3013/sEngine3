@@ -3,6 +3,7 @@ let canvasRect;
 let mainCamera; */
 let Game = {};
 Game.UI = {};
+Game.Info = {};
 
 Game.init = () => {
     var divs = document.getElementsByTagName("div");
@@ -37,7 +38,7 @@ Game.init = () => {
     Game.canvas.width = document.body.clientWidth;
     Game.canvas.height = document.body.clientHeight;
 
-    Game.mainCamera = new Camera(player);
+    Game.mainCamera = new Camera(player, 10);
 
     Game.canvas.addEventListener("mousemove", (e) => {
         mouse.x = e.clientX;

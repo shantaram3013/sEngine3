@@ -1,5 +1,4 @@
 TODO: Tilemap system from sEngine2
-TODO: Smooth health bar decrease / increase in setHealthBarPerc
 TODO: Sprite support
 TODO: Enemy AI
 TODO: battle system
@@ -10,9 +9,9 @@ TODO: Saving, loading
 TODO: entity/type-specific speed limits
 TODO: Start screen
 TODO: build a proper Type class that includes draw data etc
-TODO: data loading system (using XHR?)
 TODO: populate world with content
 TODO: packaging (minification, electron, etc)
+TODO: clean up setHealthBarPercentage
 
 PARTIAL: port dialogue system from TADS
 PARTIAL: build a content editor (svf compiler is done, TileMap editor is done too)
@@ -33,3 +32,5 @@ DONE: add a vector method to check if the length of a given vector is less than 
 DONE: Music system (shouldn't be too hard, really)
 DONE: create a global gameobject
 DONE: Dynamic resize
+DONE: Smooth health bar decrease / increase in setHealthBarPercentage
+DONE: Added camera easing.

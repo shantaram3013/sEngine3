@@ -71,3 +71,23 @@ CanvasRenderingContext2D.prototype.strokeCircle = function (center, radius, colo
     this.lineWidth = weight;
     this.stroke();
 }
+
+window.inputHandler = function () {
+
+    if (window.isKeyDown('w')) {
+        player.move(Game.Directions.UP);
+    }
+    if (window.isKeyDown('a')) {
+        player.move(Game.Directions.LEFT);
+    }
+    if (window.isKeyDown('s')) {
+        player.move(Game.Directions.DOWN);
+    }
+    if (window.isKeyDown('d')) {
+        player.move(Game.Directions.RIGHT);
+    }
+}
+
+window.isKeyDown = function (k) {
+    return window.pressedKeys[k];
+}

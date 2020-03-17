@@ -114,7 +114,7 @@ class Entity {
                 }
 
                 else {
-                };
+                }
 
                 if (this.type === Game.ETypes.PLAYER && (x.type === Game.ETypes.TRIGGER)) {
                     this.triggerActive = true;

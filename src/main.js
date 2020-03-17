@@ -1,6 +1,7 @@
-Game.frameCounter = 0;
+Game.Info.frameCounter = 0;
 
 Game.mapBGColor = '#472000';
+
 function draw() {
 
     Game.renderer.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
@@ -24,26 +25,6 @@ function draw() {
     
 
     Game.renderer.setTransform(1, 0, 0, 1, 0, 0);
-    Game.frameCounter++;
+    Game.Info.frameCounter++;
     window.requestAnimationFrame(draw);
-}
-
-window.inputHandler = function () {
-
-    if (window.isKeyDown('w')) {
-        player.move(Game.Directions.UP);
-    }
-    if (window.isKeyDown('a')) {
-        player.move(Game.Directions.LEFT);
-    }
-    if (window.isKeyDown('s')) {
-        player.move(Game.Directions.DOWN);
-    }
-    if (window.isKeyDown('d')) {
-        player.move(Game.Directions.RIGHT);
-    }
-}
-
-window.isKeyDown = function (k) {
-    return window.pressedKeys[k];
 }
