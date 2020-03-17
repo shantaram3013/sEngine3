@@ -2,7 +2,6 @@ TODO: Tilemap system from sEngine2
 TODO: Smooth health bar decrease / increase in setHealthBarPerc
 TODO: Sprite support
 TODO: Enemy AI
-TODO: CSS vars
 TODO: battle system
 TODO: attacks
 TODO: look for and fix code duplication
@@ -18,6 +17,7 @@ TODO: packaging (minification, electron, etc)
 PARTIAL: port dialogue system from TADS
 PARTIAL: build a content editor (svf compiler is done, TileMap editor is done too)
 PARTIAL: status UI
+PARTIAL: CSS vars
 PARTIAL: health system
 PARTIAL: UI streamlining (marked partial since UI itself is in early dev)
 PARTIAL: implement cross-type collision between non-player types

@@ -9,6 +9,10 @@
         scrollbar-width: none;
         font-family: 'PT Serif', serif;
         user-select: none;
+        --canvas-border-color: #130900;
+        --outofbounds-color: #303030;
+        --max-health-color: hsl(140, 89%, 40%);
+        --npcname-background: #404040;
     }
 
     #game-canvas {
@@ -23,7 +27,7 @@
         left: 0%;
         width: 100%;
         height: 100%;
-        border: 2px solid #130900;
+        border: 2px solid var(--canvas-border);
         box-sizing: border-box;
     }
 
@@ -38,9 +42,8 @@
     }
 
     #ui-wrapper {
-        background: #303030;
+        background: var(--outofbounds-color);
     }
-
 
 
     #status {
@@ -67,7 +70,7 @@
     #health-value {
         margin: 0 0 0 0;
         padding: 0 0 0 0;
-        background-color: hsl(140, 89%, 40%);
+        background-color: var(--max-health-color);
         width: 100%;
         display: block;
         height: 6px;
@@ -100,7 +103,7 @@
         top: 2%;
         transform: translate(12%, -30%);
         background-clip: content-box;
-        background: #404040;
+        background: var(--npcname-background);
         opacity: 0.75;
         border: 1px solid rgba(24, 24, 24, 0.75);
         width: 15%;
