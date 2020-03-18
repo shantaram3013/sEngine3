@@ -1,4 +1,5 @@
 class Entity {
+
     constructor(_pos, _radius, _type, miscArgs) {
         this.pos = _pos || new Vector2(0, 0);
         this.radius = _radius || Game.World.tileSize;

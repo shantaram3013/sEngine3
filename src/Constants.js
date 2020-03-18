@@ -16,7 +16,7 @@ Game.World = {
         height: 100
     },
     friction: 0.2,
-    maxVel: new Vector2(-5, 5),
+    maxVel: new Vector2(-5, 5), // not a vector, but a limit
     // don't know why this is 1.4, but it just looks right (might be because 1.4 ~ 1.414 ~ sqrt(2)?). It's the alpha value for the lerp function
     velocityLerpValue: 1.4,
 }
