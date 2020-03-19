@@ -11,18 +11,20 @@ function draw() {
         x.update();
     }
 
-    window.inputHandler();
+    Game.Input.keyHandler();
 
     Game.mainCamera.focus();
     Game.mainCamera.update();
 
     Game.renderer.scale(Game.canvasScale.x, Game.canvasScale.y);
-
+    
     Game.renderer.fillRect(0, 0, Game.World.map.width * Game.World.tileSize, Game.World.map.height * Game.World.tileSize);
+    
+    new TileMap().draw();
+
     for (let x of Game.entities) {
         x.draw();
     }
-    
 
     Game.renderer.setTransform(1, 0, 0, 1, 0, 0);
     Game.Info.frameCounter++;

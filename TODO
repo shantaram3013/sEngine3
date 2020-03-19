@@ -1,4 +1,3 @@
-TODO: Tilemap system from sEngine2
 TODO: Sprite support
 TODO: Enemy AI
 TODO: battle system
@@ -12,12 +11,18 @@ TODO: build a proper Type class that includes draw data etc
 TODO: populate world with content
 TODO: packaging (minification, electron, etc)
 TODO: clean up setHealthBarPercentage
+TODO: Mobile support
+TODO: circle-rectangle collision
+TODO: melee object
+TODO: add a killable NPC type?
+TODO: melee attack attached to player
 
 PARTIAL: port dialogue system from TADS
 PARTIAL: build a content editor (svf compiler is done, TileMap editor is done too)
 PARTIAL: status UI
 PARTIAL: CSS vars
 PARTIAL: health system
+PARTIAL: Tilemap system from sEngine2
 PARTIAL: UI streamlining (marked partial since UI itself is in early dev)
 PARTIAL: implement cross-type collision between non-player types
 

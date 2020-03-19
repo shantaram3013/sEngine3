@@ -40,6 +40,7 @@ Game.UI.healthBarTimeouts = []
 Game.UI.setHealthBarPercentage = function (s) {
 
     let healthVal = clamp(s, 0, 100);
+    healthVal = Math.round(healthVal);
     if (Game.UI.healthBarTimeouts !== []) {
         for (let x of Game.UI.healthBarTimeouts) {
             window.clearTimeout(x);

@@ -72,22 +72,21 @@ CanvasRenderingContext2D.prototype.strokeCircle = function (center, radius, colo
     this.stroke();
 }
 
-window.inputHandler = function () {
+function circleRectCollision(circle, rect) {
 
-    if (window.isKeyDown('w')) {
-        player.move(Game.Directions.UP);
-    }
-    if (window.isKeyDown('a')) {
-        player.move(Game.Directions.LEFT);
-    }
-    if (window.isKeyDown('s')) {
-        player.move(Game.Directions.DOWN);
-    }
-    if (window.isKeyDown('d')) {
-        player.move(Game.Directions.RIGHT);
+}
+
+class Rectangle {
+    constructor(pos, width, height) {
+        this.corners = [
+            pos,
+            pos.add(new Vector2(0, height)),
+            pos.add(new Vector2(0, width)),
+            pos.add(new Vector2(width, height))
+        ]
     }
 }
 
-window.isKeyDown = function (k) {
-    return window.pressedKeys[k];
+class Circle {
+
 }

@@ -2,12 +2,13 @@ class Choice {
     constructor(text, next, callback) {
         this.next = next;
         this.text = text;
-        this.score = score;
         this.callback = callback;
     }
 
     resolve() {
-        Game.setCurrentPrompt(this.next);
+        if (this.next) {
+            Game.setCurrentPrompt(this.next);
+        }
         if (this.callback) {
             this.callback();
         }
@@ -15,6 +16,15 @@ class Choice {
     }
 
     toHTMLChoice() {
-
+        let btn = document.createElement("div");
+        btn.classList.add("button-div");
+        btn.choice = this;
+        btn.innerHTML = this.text;
+    
+        btn.addEventListener('click', () => {
+                btn.choice.resolve();
+            // game.audio.snipFX.play();
+        })
+        document.getElementById("button-wrapper").appendChild(btn);
     }
 }

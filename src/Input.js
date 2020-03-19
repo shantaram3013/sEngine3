@@ -48,3 +48,22 @@ Game.Input.keyUpHandler = function (e) {
     }
 }
 
+Game.Input.keyHandler = function () {
+
+    if (Game.Input.isKeyDown('w')) {
+        player.move(Game.Directions.UP);
+    }
+    if (Game.Input.isKeyDown('a')) {
+        player.move(Game.Directions.LEFT);
+    }
+    if (Game.Input.isKeyDown('s')) {
+        player.move(Game.Directions.DOWN);
+    }
+    if (Game.Input.isKeyDown('d')) {
+        player.move(Game.Directions.RIGHT);
+    }
+}
+
+Game.Input.isKeyDown = function (k) {
+    return window.pressedKeys[k];
+}
