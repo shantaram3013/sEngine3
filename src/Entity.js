@@ -31,7 +31,7 @@ class Entity {
         if (this.miscArgs.parent) {
             this.pos = this.miscArgs.parent.pos;
         }
-        
+
         else {
             this.resolveCollisions();
             this.pos = this.pos.add(this.vel);
@@ -89,10 +89,47 @@ class Entity {
     isColliding(x) {
         return distance(this, x) <= this.radius + x.radius;
     }
-    
+
     resolveCollisions() {
-        if (this.type === Game.ETypes.NPC || this.type === Game.ETypes.SIGN)
-            return;
+
+        for (let x of Game.entities) {
+
+            if (this === x) return;
+
+            if (this.isColliding(x)) {
+
+                console.log(x.type + " " + this.type)
+
+                if (![Game.ETypes.SIGN, Game.ETypes.NPC].includes(this.type)) {
+                    this.resolveCollision(x);
+                }
+
+                else if ([Game.ETypes.TRIGGER].includes(x)) {
+                    console.log('hi');
+                }
+
+                else {
+                    x.resolveCollision(this);
+                }
+            }
+
+        }
+    }
+
+    resolveCollision(x) {
+        if (![Game.ETypes.TRIGGER].includes(x.type)) {
+            let distance = this.pos.sub(x.pos);
+            let length = distance.len();
+            let radii_sum = x.radius + this.radius;
+            let unitVec = new Vector2(
+                distance.x,
+                distance.y
+            ).sDiv(length);
+
+            this.pos.x = x.pos.x + (radii_sum + 1) * unitVec.x;
+            this.pos.y = x.pos.y + (radii_sum + 1) * unitVec.y;
+        }
+
     }
 }
 

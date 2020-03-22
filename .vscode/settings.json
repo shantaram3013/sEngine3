@@ -1,0 +1,8 @@
+{
+    "editor.fontFamily": "'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback'",
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.tips.enabled": false,
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": false
+}

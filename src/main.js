@@ -20,7 +20,7 @@ function draw() {
     
     Game.renderer.fillRect(0, 0, Game.World.map.width * Game.World.tileSize, Game.World.map.height * Game.World.tileSize);
     
-    new TileMap().draw();
+    // new TileMap().draw();
 
     for (let x of Game.entities) {
         x.draw();

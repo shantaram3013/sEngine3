@@ -1,8 +1,8 @@
 class Prompt {
-    constructor(text, heading, choices) {
+    constructor(text, speaker, choices) {
         this.text = text;
         this.choices = choices;
-        this.heading = heading;
+        this.speaker = speaker;
     }
 
     draw() {

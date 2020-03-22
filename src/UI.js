@@ -58,12 +58,8 @@ Game.UI.setHealthBarPercentage = function (s) {
         return 0; 
     }
 
-    if (widthVal < healthVal) {
-        Game.UI.healthBar.style.width = (widthVal + Game.UI.healthBarDelta) + '%';
-    }
-    else if (widthVal > healthVal) {
-        Game.UI.healthBar.style.width = (widthVal - Game.UI.healthBarDelta) + '%';
-    }
+    // either add or subtract healthBarDelta depending on whether healthVal is greater than or less than the current width
+    Game.UI.healthBar.style.width = (widthVal + (Math.sign(healthVal - widthVal) * Game.UI.healthBarDelta)) + '%';
 
     Game.UI.healthBarTimeouts.push(setTimeout(
         Game.UI.setHealthBarPercentage, Game.UI.healthBarIncrementTime, healthVal));
