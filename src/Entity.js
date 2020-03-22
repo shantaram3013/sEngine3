@@ -28,12 +28,13 @@ class Entity {
 
     update() {
 
+        this.resolveCollisions();
+
         if (this.miscArgs.parent) {
             this.pos = this.miscArgs.parent.pos;
         }
 
         else {
-            this.resolveCollisions();
             this.pos = this.pos.add(this.vel);
 
             if (this.vel.x > Game.World.friction) {
@@ -91,21 +92,13 @@ class Entity {
     }
 
     resolveCollisions() {
-
         for (let x of Game.entities) {
 
             if (this === x) return;
 
             if (this.isColliding(x)) {
-
-                console.log(x.type + " " + this.type)
-
                 if (![Game.ETypes.SIGN, Game.ETypes.NPC].includes(this.type)) {
                     this.resolveCollision(x);
-                }
-
-                else if ([Game.ETypes.TRIGGER].includes(x)) {
-                    console.log('hi');
                 }
 
                 else {
@@ -117,7 +110,7 @@ class Entity {
     }
 
     resolveCollision(x) {
-        if (![Game.ETypes.TRIGGER].includes(x.type)) {
+        if (![Game.ETypes.TRIGGER].includes(this.type)) {
             let distance = this.pos.sub(x.pos);
             let length = distance.len();
             let radii_sum = x.radius + this.radius;
@@ -130,6 +123,12 @@ class Entity {
             this.pos.y = x.pos.y + (radii_sum + 1) * unitVec.y;
         }
 
+        else {
+            if (x.type === Game.ETypes.PLAYER) {
+                x.setActiveTrigger(this);
+            }
+        }
+        
     }
 }
 

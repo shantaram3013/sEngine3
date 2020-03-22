@@ -10,4 +10,13 @@ class Enemy extends Entity {
     draw() {
         Game.renderer.fillCircle(this.pos, this.radius, 'red');
     }
+
+
+    resolveCollision(x) {
+        super.resolveCollision(x);
+
+        if (x.type === Game.ETypes.PLAYER) {
+            console.log("EnemyCollision");
+        }
+    }
 }

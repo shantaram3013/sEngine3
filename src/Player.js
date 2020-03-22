@@ -15,4 +15,10 @@ class Player extends Entity {
         Game.renderer.strokeCircle(this.pos, this.radius, 'yellow');
     }
 
+    setActiveTrigger(x) {
+        this.triggerActive = true;
+        this.currentTrigger = x;
+        this.currentTriggerAction = x.miscArgs.parent.miscArgs.action.resolve;
+    }
+
 }
