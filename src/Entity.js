@@ -26,14 +26,11 @@ class Entity {
         }
     }
 
-    update() {
-
+    update(delta) {
         this.resolveCollisions();
-
         if (this.miscArgs.parent) {
             this.pos = this.miscArgs.parent.pos;
         }
-
         else {
             this.pos = this.pos.add(this.vel);
 
@@ -66,30 +63,30 @@ class Entity {
             this.moving = false;
         }
 
-        this.pos.x = clamp(this.pos.x, this.radius, Game.World.map.width * Game.World.tileSize);
-        this.pos.y = clamp(this.pos.y, this.radius, Game.World.map.height * Game.World.tileSize);
+        this.pos.x = clamp(this.pos.x, this.radius, Game.World.map.width * Game.World.tileSize - this.radius);
+        this.pos.y = clamp(this.pos.y, this.radius, Game.World.map.height * Game.World.tileSize - this.radius);
 
         this.pos.round();
     }
 
-    move(dir) {
+    move(dir, dv) {
         this.moving = true;
         if (dir === Game.Directions.UP) {
-            if (this.vel.y > Game.World.maxVel.x + 0.5)
-                this.vel.y -= 1;
+            if (this.vel.y > Game.World.maxVel.x + dv/2)
+                this.vel.y -= dv;
         }
 
         if (dir === Game.Directions.DOWN) {
-            if (this.vel.y < Game.World.maxVel.y - 0.5)
-                this.vel.y += 1;
+            if (this.vel.y < Game.World.maxVel.y - dv/2)
+                this.vel.y += dv;
         }
         if (dir === Game.Directions.RIGHT) {
-            if (this.vel.x < Game.World.maxVel.y - 0.5)
-                this.vel.x += 1;
+            if (this.vel.x < Game.World.maxVel.y - dv/2)
+                this.vel.x += dv;
         }
         if (dir === Game.Directions.LEFT) {
-            if (this.vel.x > Game.World.maxVel.x + 0.5)
-                this.vel.x -= 1;
+            if (this.vel.x > Game.World.maxVel.x + dv/2)
+                this.vel.x -= dv;
         }
     }
 
@@ -103,27 +100,28 @@ class Entity {
             if (this === x) return;
 
             if (this.isColliding(x)) {
-                if (![Game.ETypes.SIGN, Game.ETypes.NPC].includes(this.type)) {
                     this.resolveCollision(x);
-                }
-
-                else {
-                    x.resolveCollision(this);
-                }
             }
-
         }
     }
 
     resolveCollision(x) {
         if (![Game.ETypes.TRIGGER].includes(this.type)) {
-
+            // position math learnt from https://www.youtube.com/watch?v=LPzyNOHY3A4
             let distance = this.pos.sub(x.pos);
             let length = distance.len();
-            let radii_sum = x.radius + this.radius;
-            let unitVec = new Vector2(distance.x, distance.y).sDiv(length);
+            let overlap = (length - x.radius - this.radius);
+            let displacement = 0.5 * overlap;
+            if (![Game.ETypes.SIGN, Game.ETypes.NPC].includes(this.type)) {
 
-            this.pos = x.pos.add(unitVec.sMul(radii_sum + 1));
+                // each body undergoes half the displacement
+                this.pos = this.pos.sub(distance.sMul(displacement/length));
+                x.pos = x.pos.add(distance.sMul(displacement/length));
+            }
+            else {
+                // if an NPC or SIGN is involved, the entire displacement is undergone by the other body
+                x.pos = x.pos.add(distance.sMul(overlap/length));
+            }
         }
 
         else {
@@ -149,17 +147,6 @@ class Entity {
         let vec = new Vector2(1, 1);
         vec.x = Math.cos(direction) * magnitude;
         vec.y = Math.sin(direction) * magnitude;
-        this.vel = (vec);
+        this.vel = this.vel.add(vec);
     }
 }
-
-
-/*
-
-String str = "hello";
-str.substring(3);
-
-ArrayList<String> str = new ArrayList();
-str.add("hello");
-
-*/

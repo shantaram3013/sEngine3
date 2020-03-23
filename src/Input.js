@@ -51,16 +51,16 @@ Game.Input.keyUpHandler = function (e) {
 Game.Input.keyHandler = function () {
 
     if (Game.Input.isKeyDown('w')) {
-        player.move(Game.Directions.UP);
+        player.move(Game.Directions.UP, 0.5);
     }
     if (Game.Input.isKeyDown('a')) {
-        player.move(Game.Directions.LEFT);
+        player.move(Game.Directions.LEFT, 0.5);
     }
     if (Game.Input.isKeyDown('s')) {
-        player.move(Game.Directions.DOWN);
+        player.move(Game.Directions.DOWN, 0.5);
     }
     if (Game.Input.isKeyDown('d')) {
-        player.move(Game.Directions.RIGHT);
+        player.move(Game.Directions.RIGHT, 0.5);
     }
 }
 

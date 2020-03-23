@@ -32,4 +32,8 @@ class Player extends Entity {
         this.currentTrigger = x;
         this.currentTriggerAction = x.miscArgs.parent.miscArgs.action.resolve;
     }
+
+    die() {
+
+    }
 }
