@@ -111,16 +111,13 @@ class Entity {
 
     resolveCollision(x) {
         if (![Game.ETypes.TRIGGER].includes(this.type)) {
+
             let distance = this.pos.sub(x.pos);
             let length = distance.len();
             let radii_sum = x.radius + this.radius;
-            let unitVec = new Vector2(
-                distance.x,
-                distance.y
-            ).sDiv(length);
+            let unitVec = new Vector2(distance.x, distance.y).sDiv(length);
 
-            this.pos.x = x.pos.x + (radii_sum + 1) * unitVec.x;
-            this.pos.y = x.pos.y + (radii_sum + 1) * unitVec.y;
+            this.pos = x.pos.add(unitVec.sMul(radii_sum + 1));
         }
 
         else {
@@ -128,7 +125,18 @@ class Entity {
                 x.setActiveTrigger(this);
             }
         }
-        
+
+        if ([Game.ETypes.ENEMY, Game.ETypes.PLAYER].includes(x.type)
+        && [Game.ETypes.ENEMY, Game.ETypes.PLAYER].includes(this.type)) {
+            let u1 = this.vel;
+            let u2 = x.vel;
+
+            let m1 = (Math.pow(this.radius, 3) * 4)  * Game.World.fleshDensity;
+            let m2 = (Math.pow(x.radius, 3) * 4)  * Game.World.fleshDensity;
+
+            x.vel = u1.sMul(m1).add(u2.sMul(m2)).sub(u2.sMul(m1)).sDiv(m1 + m2);
+            this.vel = u2.sub(u1).add(x.vel);
+        }
     }
 }
 

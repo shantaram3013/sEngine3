@@ -21,6 +21,8 @@ Game.World = {
     velocityLerpValue: 1.4,
 }
 
+Game.World.fleshDensity = 0.5;
+
 Game.ETypes = {
     PLAYER: 0,
     ENEMY: 1,
