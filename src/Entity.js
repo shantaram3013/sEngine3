@@ -133,16 +133,23 @@ class Entity {
         }
 
         if ([Game.ETypes.ENEMY, Game.ETypes.PLAYER].includes(x.type)
-        && [Game.ETypes.ENEMY, Game.ETypes.PLAYER].includes(this.type)) {
+            && [Game.ETypes.ENEMY, Game.ETypes.PLAYER].includes(this.type)) {
             let u1 = this.vel;
             let u2 = x.vel;
 
-            let m1 = (Math.pow(this.radius, 3) * 4)  * Game.World.fleshDensity;
-            let m2 = (Math.pow(x.radius, 3) * 4)  * Game.World.fleshDensity;
+            let m1 = (Math.pow(this.radius, 3) * 4) * Game.World.fleshDensity;
+            let m2 = (Math.pow(x.radius, 3) * 4) * Game.World.fleshDensity;
 
             x.vel = u1.sMul(m1).add(u2.sMul(m2)).sub(u2.sMul(m1)).sDiv(m1 + m2);
             this.vel = u2.sub(u1).add(x.vel);
         }
+    }
+
+    applyForceInDirection(direction, magnitude) {
+        let vec = new Vector2(1, 1);
+        vec.x = Math.cos(direction) * magnitude;
+        vec.y = Math.sin(direction) * magnitude;
+        this.vel = (vec);
     }
 }
 

@@ -21,7 +21,7 @@ Game.World = {
     velocityLerpValue: 1.4,
 }
 
-Game.World.fleshDensity = 0.5;
+Game.World.fleshDensity = 1;
 
 Game.ETypes = {
     PLAYER: 0,
