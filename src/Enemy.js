@@ -14,9 +14,5 @@ class Enemy extends Entity {
 
     resolveCollision(x) {
         super.resolveCollision(x);
-
-        if (x.type === Game.ETypes.PLAYER) {
-            console.log("EnemyCollision");
-        }
     }
 }
