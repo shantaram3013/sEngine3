@@ -66,8 +66,8 @@ class Entity {
             this.moving = false;
         }
 
-        this.pos.x = clamp(this.pos.x, Game.World.tileSize, Game.World.map.width * Game.World.tileSize);
-        this.pos.y = clamp(this.pos.y, Game.World.tileSize, Game.World.map.height * Game.World.tileSize);
+        this.pos.x = clamp(this.pos.x, this.radius, Game.World.map.width * Game.World.tileSize);
+        this.pos.y = clamp(this.pos.y, this.radius, Game.World.map.height * Game.World.tileSize);
 
         this.pos.round();
     }
