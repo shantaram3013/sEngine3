@@ -21,6 +21,10 @@ class Player extends Entity {
             if (this.health < 100) this.health += 1;
             this.health = clamp(this.health, 0, this.maxHealth);
         }
+
+        if (this.moving) {
+            this.health -= 0.03;
+        }
     }
 
     setActiveTrigger(x) {
@@ -28,10 +32,4 @@ class Player extends Entity {
         this.currentTrigger = x;
         this.currentTriggerAction = x.miscArgs.parent.miscArgs.action.resolve;
     }
-
-    move(dir) {
-        super.move(dir);
-        this.health -= 0.03;
-    }
-
 }

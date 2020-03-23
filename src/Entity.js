@@ -61,6 +61,11 @@ class Entity {
                 this.vel.y = 0;
             }
         }
+
+        if (this.vel.equals(nullV)) {
+            this.moving = false;
+        }
+
         this.pos.x = clamp(this.pos.x, 0, Game.World.map.width * Game.World.tileSize);
         this.pos.y = clamp(this.pos.y, 0, Game.World.map.height * Game.World.tileSize);
 
@@ -68,6 +73,7 @@ class Entity {
     }
 
     move(dir) {
+        this.moving = true;
         if (dir === Game.Directions.UP) {
             if (this.vel.y > Game.World.maxVel.x + 0.5)
                 this.vel.y -= 1;
