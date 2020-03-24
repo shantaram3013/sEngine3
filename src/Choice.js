@@ -25,6 +25,6 @@ class Choice {
                 btn.choice.resolve();
             // game.audio.snipFX.play();
         })
-        document.getElementById("button-wrapper").appendChild(btn);
+        Game.UI.btnWrapper.appendChild(btn);
     }
 }

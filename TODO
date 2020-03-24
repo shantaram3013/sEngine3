@@ -1,20 +1,25 @@
 TODO: Sprite support
 TODO: Enemy AI
 TODO: battle system
+TODO: rework typewriter.js
 TODO: attacks
-TODO: look for and fix code duplication
-TODO: figure out why removing code duplication in utils.js two distance functions breaks the game
-TODO: Saving, loading
-TODO: entity/type-specific speed limits
-TODO: Start screen
-TODO: clean up setHealthBarPercentage
+TODO: Implement pausing
+TODO: Live settings menu
+TODO: Debug view
+TODO: Death
 TODO: Mobile support
 TODO: circle-rectangle collision
 TODO: melee object
 TODO: add a killable NPC type?
 TODO: melee attack attached to player
-TODO: organise src folder
+TODO: Saving, loading
+TODO: entity/type-specific speed limits
+TODO: Start screen
+TODO: clean up setHealthBarPercentage
+TODO: look for and fix code duplication
+TODO: figure out why removing code duplication in utils.js two distance functions breaks the game
 TODO: populate world with content
+TODO: organise src folder
 TODO: packaging (minification, electron, etc)
 
 PARTIAL: port dialogue system from TADS
@@ -40,3 +45,4 @@ DONE: create a global gameobject
 DONE: Dynamic resize
 DONE: Smooth health bar decrease / increase in setHealthBarPercentage
 DONE: Added camera easing.
+DONE: Fixed the goddamn annoying bug with collision that would allow clipping into enemies pushed up against an immovable object.

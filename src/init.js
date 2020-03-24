@@ -1,9 +1,7 @@
-/* let canvas, renderer;
-let canvasRect;
-let mainCamera; */
 let Game = {};
 Game.UI = {};
 Game.Info = {};
+Game.Input = {};
 
 Game.init = () => {
     var divs = document.getElementsByTagName("div");
@@ -18,6 +16,10 @@ Game.init = () => {
     Game.UI.dialogueBox = document.getElementById('dialogue');
     Game.UI.healthBar = document.getElementById('health-value');
     Game.UI.healthText = document.getElementById('health-value-text');
+    Game.UI.mask = document.getElementById('mask');
+    Game.UI.btnWrapper = document.getElementById("button-wrapper");
+    Game.UI.maskSubtext = document.getElementById('mask-subtext');
+    Game.UI.maskHeader = document.getElementById('mask-header');
 
     window.addEventListener('keypress', Game.Input.keyDownHandler);
     window.addEventListener('keyup', Game.Input.keyUpHandler);
@@ -37,6 +39,8 @@ Game.init = () => {
 
     Game.canvas.width = document.body.clientWidth;
     Game.canvas.height = document.body.clientHeight;
+
+    Game.setPause(false);
 
     Game.mainCamera = new Camera(player, 10);
 

@@ -1,4 +1,3 @@
-Game.Input = {};
 Game.Input.rightMouseClicked = false;
 window.pressedKeys = [];
 
@@ -45,6 +44,10 @@ Game.Input.keyUpHandler = function (e) {
             player.triggerActive = false;
             player.currentTriggerAction = undefined;
         }
+    }
+
+    if (e.key === 'Escape') {
+        Game.isPaused() ? Game.setPause(false) : Game.setPause(true);
     }
 }
 

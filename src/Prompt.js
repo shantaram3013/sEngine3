@@ -8,5 +8,11 @@ class Prompt {
     draw() {
         // disableAllButtons();
         // TODO: implement drawing routine
+        for (choice of this.choices) {
+            choice.toHTMLButton();
+        }
+
+        Game.UI.setDialogueText(this.text);
+        Game.UI.setNPCName(this.speaker);
     }
 }

@@ -90,3 +90,12 @@ class Rectangle {
 class Circle {
 
 }
+
+Game.isPaused = function() {
+    return Game.paused;
+}
+
+Game.setPause = function(bool) {
+    Game.paused = bool;
+    bool ? Game.UI.setPaused() : Game.UI.setUnpaused();
+}

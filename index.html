@@ -1,6 +1,7 @@
 <html>
 <style>
     @import url('https://fonts.googleapis.com/css?family=PT+Serif&display=swap');
+
     html,
     body {
         background-color: #261300;
@@ -11,7 +12,8 @@
         --canvas-border-color: #130900;
         --outofbounds-color: #303030;
         --max-health-color: hsl(140, 89%, 40%);
-        --npcname-background: #404040;
+        --npcname-background: transparent;
+        --npcname-bordercolor: transparent;
     }
 
     #game-canvas {
@@ -72,9 +74,9 @@
         background-color: var(--max-health-color);
         width: 100%;
         display: block;
-        height: 6px;
+        height: 0.3750em;
         left: 0%;
-        font-size: 12px;
+        font-size: 90%;
         position: absolute;
         bottom: 5%;
     }
@@ -100,25 +102,26 @@
     #npc-name {
         position: absolute;
         top: 2%;
-        transform: translate(12%, -30%);
+        transform: translate(30%, -40%);
         background-clip: content-box;
         background: var(--npcname-background);
         opacity: 0.75;
-        border: 1px solid rgba(24, 24, 24, 0.75);
+        border: 1px solid var(--npcname-bordercolor);
         width: 15%;
-        font-size: 14px;
+        font-size: 0.9750em;
         font-weight: bold;
         text-align: center;
-        padding-top: 4px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-top: 0.4175em;
+        padding-left: 0.6250em;
+        padding-right: 0.6250em;
         border-radius: 12px;
         height: 25%;
         z-index: 1;
-
         white-space: nowrap;
+        /* 
         overflow: hidden;
         text-overflow: ellipsis;
+        */
     }
 
     #dialogue {
@@ -129,13 +132,13 @@
         width: 85%;
         height: 70%;
         word-wrap: normal;
-        font-size: 15px;
+        font-size: 1.0750em;
         text-align: left;
         border-radius: 6px;
         padding-top: 12px;
         padding-bottom: 4px;
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left: 0.9750em;
+        padding-right: 0.9750em;
         z-index: 0;
         background: #222222;
         opacity: 0.75;
@@ -150,12 +153,12 @@
         width: 100%;
         align-items: center;
         justify-content: center;
-        margin-top: 9px;
+        margin-top: 0.6375em;
     }
 
-    #button-wrapper .button-div {
-        margin-left: 10px;
-        margin-right: 10px;
+    .button-div {
+        margin-left: 0.6250em;
+        margin-right: 0.6250em;
         margin-top: 6px;
         background: transparent;
         text-shadow: 2px 2px #202020;
@@ -170,17 +173,52 @@
         transform: translate(-10%, 0%);
     }
 
-    #button-wrapper .button-div:active {
+    .button-div:active {
         transform: translate(-10%, 4px);
         border-bottom: 1px solid #202020;
     }
 
-    #button-wrapper .button-div:hover {
+    .button-div:hover {
         text-shadow: 2px 2px #555555;
     }
 
     .data {
         display: none;
+    }
+
+    #mask {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+        background: rgba(24, 24, 24, 0.75);
+    }
+
+    #mask-header {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        font-size: 72px;
+        top: 20%;
+        left: 0%;
+        z-index: 3;
+    }
+
+    #mask-subtext {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        font-size: 35px;
+        top: 40%;
+        left: 0%;
+        font-style: italic;
+        color: rgba(250, 244, 232, 1);
+        z-index: 3;
     }
 </style>
 
@@ -192,6 +230,15 @@
 
 <body>
     <div id='mask'>
+
+    </div>
+    <div id='mask-text'>
+        <div id='mask-header'>
+        </div>
+
+        <div id='mask-subtext'>
+        </div>
+    </div>
 
     <div id="health-bar">
         <div id="health-value">
@@ -276,7 +323,6 @@
 
         </div> -->
     </div>
-</div>
 </body>
 
 </html>

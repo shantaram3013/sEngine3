@@ -59,7 +59,7 @@ class Entity {
             }
         }
 
-        if (this.vel.equals(nullV)) {
+        if (this.vel.approximateEquals(nullV)) {
             this.moving = false;
         }
 

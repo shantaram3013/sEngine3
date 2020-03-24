@@ -17,9 +17,9 @@ class Player extends Entity {
 
     update() {
         super.update();
+        this.health = clamp(this.health, 0, this.maxHealth);
         if (Game.Info.frameCounter % 60 == 0) {
-            if (this.health < 100) this.health += 1;
-            this.health = clamp(this.health, 0, this.maxHealth);
+            if (this.health < 100) this.health += this.maxHealth * 0.01;
         }
 
         if (this.moving) {
