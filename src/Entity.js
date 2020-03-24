@@ -149,4 +149,8 @@ class Entity {
         vec.y = Math.sin(direction) * magnitude;
         this.vel = this.vel.add(vec);
     }
+
+    die() {
+        
+    }
 }

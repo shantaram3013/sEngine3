@@ -26,6 +26,7 @@ Game.init = () => {
     window.addEventListener('mousedown', Game.Input.mouseDownHandler);
     window.addEventListener('mouseup', Game.Input.mouseUpHandler);
     window.addEventListener('contextmenu', (e) => e.preventDefault());
+    window.addEventListener('blur', function() { window.pressedKeys = [] });
 
     Game.canvasScale = {};
 
@@ -51,7 +52,7 @@ Game.init = () => {
 
     Game.UI.hideTextBox();
 
-    alert('Welcome to sEngine3\'s playable demo.\nINSTRUCTIONS: WASD to move the yellow dot, the player.\nHollow green circles are triggers and you can press E to interact with a trigger.\nRed dots are enemies.')
+    alert('Welcome to sEngine3\'s playable demo.\nINSTRUCTIONS: WASD to move the yellow dot, the player.\nHollow green circles are triggers and you can press E to interact with a trigger.\nRed dots are enemies.\nEscape to pause.')
 
     window.requestAnimationFrame(draw);
 }

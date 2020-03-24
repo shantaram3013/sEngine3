@@ -7,7 +7,6 @@ class Prompt {
 
     draw() {
         // disableAllButtons();
-        // TODO: implement drawing routine
         for (choice of this.choices) {
             choice.toHTMLButton();
         }

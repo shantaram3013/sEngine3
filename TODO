@@ -1,9 +1,9 @@
+TODO: Utility method to remove all children of a DOM element
 TODO: Sprite support
 TODO: Enemy AI
 TODO: battle system
 TODO: rework typewriter.js
 TODO: attacks
-TODO: Implement pausing
 TODO: Live settings menu
 TODO: Debug view
 TODO: Death
@@ -45,4 +45,5 @@ DONE: create a global gameobject
 DONE: Dynamic resize
 DONE: Smooth health bar decrease / increase in setHealthBarPercentage
 DONE: Added camera easing.
+DONE: Implement pausing
 DONE: Fixed the goddamn annoying bug with collision that would allow clipping into enemies pushed up against an immovable object.
