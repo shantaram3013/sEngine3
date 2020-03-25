@@ -1,13 +1,13 @@
 Game.UI.hideTextBox = function () {
-    if (!Game.UI.textBox.hasMouseInside) {
-        Game.UI.textBox.style.opacity = 0;
+    if (!Game.UI.textBox.hasMouseInside && !Game.Dialogue.dialogueActive) {
+        Game.UI.textBox.style.display = 'none';
         return;
     }
     Game.UI.closeDialogue();
 }
 
 Game.UI.showTextBox = function () {
-    Game.UI.textBox.style.opacity = 1;
+    Game.UI.textBox.style.display = 'unset';
 }
 Game.UI.setNPCName = function (s) {
     Game.UI.npcName.innerHTML = s;
@@ -63,15 +63,16 @@ Game.UI.setHealthBarPercentage = function (s) {
 }
 
 Game.UI.setMaskOpacity = function(s) {
+    Game.UI.mask.style.display = 'initial';
     Game.UI.mask.style.opacity = "" + s;
 }
 
 Game.UI.hideDialogueChoices = function () {
-    Game.UI.btnWrapper.style.opacity = 0;
+    Game.UI.btnWrapper.style.display = 'none';
 }
 
 Game.UI.showDialogueChoices = function () {
-    Game.UI.btnWrapper.style.opacity = 1;
+    Game.UI.btnWrapper.style.display = 'unset';
 }
 
 Game.UI.pauseHeading = "PAUSED";
@@ -84,7 +85,12 @@ Game.UI.setPaused = function() {
 }
 
 Game.UI.setUnpaused = function() {
-    Game.UI.setMaskOpacity(0);
+    Game.UI.hideMask();
     Game.UI.maskHeader.innerHTML = "";
     Game.UI.maskSubtext.innerHTML = "";
+}
+
+Game.UI.hideMask = function() {
+    Game.UI.setMaskOpacity(0);
+    Game.UI.mask.style.display = 'none';
 }

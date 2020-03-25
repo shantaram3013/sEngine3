@@ -1,14 +1,11 @@
-TODO: Utility method to remove all children of a DOM element
+TODO: Death
+TODO: attacks
 TODO: Sprite support
 TODO: Enemy AI
 TODO: battle system
 TODO: rework typewriter.js
-TODO: attacks
 TODO: Live settings menu
-TODO: Debug view
-TODO: Death
 TODO: Mobile support
-TODO: circle-rectangle collision
 TODO: melee object
 TODO: add a killable NPC type?
 TODO: melee attack attached to player
@@ -46,4 +43,9 @@ DONE: Dynamic resize
 DONE: Smooth health bar decrease / increase in setHealthBarPercentage
 DONE: Added camera easing.
 DONE: Implement pausing
+DONE: Implement momentum
+DONE: Better instructions screen.
 DONE: Fixed the goddamn annoying bug with collision that would allow clipping into enemies pushed up against an immovable object.
+DONE: Debug view
+TODO: Utility method to remove all children of a DOM element (utils.js clearChildren)
+DONE: circle-rectangle collision

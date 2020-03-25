@@ -17,7 +17,6 @@ Game.Time = {
 }
 
 function draw() {
-
     if (document.hasFocus() && !Game.isPaused()) {
         Game.Time.d2 = Game.Time.d1;
         Game.Time.d1 = new Date();
@@ -47,8 +46,6 @@ function draw() {
 
         Game.renderer.setTransform(1, 0, 0, 1, 0, 0);
         Game.Info.frameCounter++;
-
     }
-
     window.requestAnimationFrame(draw);
 }

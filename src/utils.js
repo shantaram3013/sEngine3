@@ -58,15 +58,15 @@ Array.prototype.remove = function (v) {
 
 CanvasRenderingContext2D.prototype.fillCircle = function (center, radius, color) {
     this.beginPath();
-    this.arc(center.x, center.y, radius, 0, 2*Math.PI);
+    this.arc(center.x, center.y, radius, 0, 2 * Math.PI);
     this.fillStyle = color || '#FFFFFF';
     this.fill();
-    
+
 }
 
 CanvasRenderingContext2D.prototype.strokeCircle = function (center, radius, color, weight) {
     this.beginPath();
-    this.arc(center.x, center.y, radius, 0, 2*Math.PI);
+    this.arc(center.x, center.y, radius, 0, 2 * Math.PI);
     this.strokeStyle = color || '#FFFFFF';
     this.lineWidth = weight;
     this.stroke();
@@ -78,24 +78,72 @@ function circleRectCollision(circle, rect) {
 
 class Rectangle {
     constructor(pos, width, height) {
-        this.corners = [
-            pos,
-            pos.add(new Vector2(0, height)),
-            pos.add(new Vector2(0, width)),
-            pos.add(new Vector2(width, height))
-        ]
+        this.pos = pos;
+        this.width = width;
+        this.height = height;
+    }
+
+    isColliding(circle) {
+        // clamp(value, min, max) - limits value to the range min..max
+
+        // Find the closest point to the circle within the rectangle
+        let closestX = clamp(circle.pos.x, this.pos.x, this.pos.x + this.width);
+        let closestY = clamp(circle.pos.y, this.pos.y, this.pos.y + this.height);
+
+        // Calculate the distance between the circle's center and this closest point
+        let distanceX = circle.pos.x - closestX;
+        let distanceY = circle.pos.y - closestY;
+
+        // If the distance is less than the circle's radius, an intersection occurs
+        let distanceSquared = (distanceX * distanceX) + (distanceY * distanceY);
+        return distanceSquared < (circle.radius * circle.radius);
+    }
+
+    draw() {
+        Game.renderer.beginPath();
+        Game.renderer.fillStyle = 'white';
+        Game.renderer.rect(this.pos.x, this.pos.y, this.width, this.height);
+        Game.renderer.stroke();
     }
 }
 
 class Circle {
+    constructor(pos, radius) {
+        this.pos = pos;
+        this.radius = radius;
+    }
 
+    isColliding(rect) {        
+        return (this.pos.x > rect.pos.x &&
+        this.pos.x < rect.pos.x + rect.width &&
+        this.pos.y > rect.pos.y && this.pos.y < rect.pos.y + rect.height);
+    }
 }
 
-Game.isPaused = function() {
+Game.isPaused = function () {
     return Game.paused;
 }
 
-Game.setPause = function(bool) {
+Game.setPause = function (bool) {
     Game.paused = bool;
     bool ? Game.UI.setPaused() : Game.UI.setUnpaused();
+}
+
+Game.blurHandler = function () {
+    window.pressedKeys = [];
+    Game.wasPausedBeforeBlur = Game.isPaused();
+    Game.setPause(true);
+}
+
+Game.focusHandler = function () {
+    if (Game.wasPausedBeforeBlur) {
+        Game.setPause(true);
+    }
+    else {
+        Game.setPause(false);
+    }
+}
+
+function clearChildren(id) {
+    document.getElementById(id).innerHTML = "";
 }

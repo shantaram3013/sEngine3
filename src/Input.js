@@ -36,7 +36,7 @@ Game.Input.keyDownHandler = function (e) {
 Game.Input.keyUpHandler = function (e) {
     window.pressedKeys[e.key] = false;
 
-    if (e.key === 'e') {
+    if (e.key === 'e' && !Game.isPaused()) {
         if (player.triggerActive && player.isColliding(player.currentTrigger)) {
             player.currentTriggerAction();
         }

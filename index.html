@@ -22,8 +22,6 @@
 
     #game-canvas {
         position: absolute;
-        /* width: 95%;
-        height: 80%; */
         top: 0%;
         left: 0%;
         width: 100%;
@@ -74,7 +72,7 @@
         background-color: var(--max-health-color);
         width: 100%;
         display: block;
-        height: 0.3750em;
+        height: 6px;
         left: 0%;
         font-size: 90%;
         position: absolute;
@@ -101,19 +99,17 @@
 
     #npc-name {
         position: absolute;
-        top: 2%;
-        transform: translate(30%, -40%);
-        background-clip: content-box;
+        bottom: 75%;
+        left: 5%;
         background: var(--npcname-background);
         opacity: 0.75;
-        border: 1px solid var(--npcname-bordercolor);
         width: 15%;
-        font-size: 0.9750em;
+        font-size: 14px;
         font-weight: bold;
         text-align: center;
-        padding-top: 0.4175em;
-        padding-left: 0.6250em;
-        padding-right: 0.6250em;
+        padding-top: 4px;
+        padding-left: 10px;
+        padding-right: 10px;
         border-radius: 12px;
         height: 25%;
         z-index: 1;
@@ -132,13 +128,13 @@
         width: 85%;
         height: 70%;
         word-wrap: normal;
-        font-size: 1.0750em;
+        font-size: 14px;
         text-align: left;
         border-radius: 6px;
-        padding-top: 12px;
+        padding-top: 8px;
         padding-bottom: 4px;
-        padding-left: 0.9750em;
-        padding-right: 0.9750em;
+        padding-left: 12px;
+        padding-right: 12px;
         z-index: 0;
         background: #222222;
         opacity: 0.75;
@@ -169,7 +165,6 @@
         color: #f5f4f0;
         padding-bottom: 4px;
         border-bottom: 1px solid;
-        cursor: pointer;
         transform: translate(-10%, 0%);
     }
 
@@ -180,6 +175,7 @@
 
     .button-div:hover {
         text-shadow: 2px 2px #555555;
+        cursor: pointer;
     }
 
     .data {
@@ -187,7 +183,7 @@
     }
 
     #mask {
-        opacity: 1;
+        opacity: 0;
         width: 100%;
         height: 100%;
         margin: 0 0 0 0;
@@ -220,6 +216,44 @@
         color: rgba(250, 244, 232, 1);
         z-index: 3;
     }
+
+    #instructions {
+        position: absolute;
+        top: 60%;
+        left: 70%;
+        z-index: 0;
+        padding: 10px;
+        margin: 6px;
+        background: #222222;
+        opacity: 0.65;
+        border: 1px solid rgba(24, 24, 24, 0.75);
+        width: 25%;
+        height: 30%;
+        border-radius: 6px;
+        word-wrap: normal;
+        font-size: 1.0000em;
+        text-align: left;
+        line-height: 1.5;
+    }
+
+    #debug {
+        position: absolute;
+        top: 8%;
+        left: 80%;
+        z-index: 2;
+        padding: 10px;
+        margin: 6px;
+        background: #222222;
+        opacity: 0.50;
+        border: 1px solid rgba(24, 24, 24, 0.75);
+        width: 15%;
+        height:20%;
+        border-radius: 6px;
+        word-wrap: normal;
+        font-size: 1.0000em;
+        text-align: left;
+        line-height: 1.5;
+    }
 </style>
 
 <head>
@@ -232,6 +266,11 @@
     <div id='mask'>
 
     </div>
+
+    <div id='debug'>
+        DebugInfo
+    </div>
+
     <div id='mask-text'>
         <div id='mask-header'>
         </div>
@@ -247,15 +286,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div id="debug">
-        <div id="btns"> </div>
-        <br>
-        <div id="cameraInfo"> </div>
-        <div id="playerInfo"> </div>
-        <div id="colliding"> </div>
-    </div> 
-    -->
 
     <script src='src/init.js'>
     </script>
@@ -304,6 +334,7 @@
     </canvas>
 
     <div class="ui-wrapper">
+
         <div id="text-box">
             <div id='npc-name'>
                 NPC name
@@ -319,10 +350,22 @@
             </div>
         </div>
 
-        <!-- <div id="status">
-
-        </div> -->
     </div>
+
+
+    <div id='instructions'>
+            Welcome to sEngine3's playable demo.<br>
+            <b>INSTRUCTIONS:</b><br>
+            WASD to move the yellow dot, the player.<br>
+            Hollow green circles are triggers and you can press E to interact with a trigger.<br>
+            Red dots are enemies.<br>
+            Escape to pause.
+    </div>
+
+    <script>
+        window.setTimeout(function() { document.getElementById('instructions').style.display = "none"; }, 10000);
+    </script>
+
 </body>
 
 </html>
