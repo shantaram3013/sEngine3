@@ -101,9 +101,14 @@ class Rectangle {
 
     draw() {
         Game.renderer.beginPath();
-        Game.renderer.fillStyle = 'white';
         Game.renderer.rect(this.pos.x, this.pos.y, this.width, this.height);
         Game.renderer.stroke();
+    }
+    draw(color) {
+        Game.renderer.beginPath();
+        Game.renderer.strokeStyle = color;
+        Game.renderer.rect(this.pos.x, this.pos.y, this.width, this.height);
+        Game.renderer.stroke();        
     }
 }
 
